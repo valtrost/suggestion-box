@@ -1,0 +1,16 @@
+<html layout:decorator="layout">
+    <div layout:fragment="content">
+        <form method="post" name="comment_form" id="comment_form" action="/suggestions/create" role="form">
+            <div class="form-group">
+                <label for="type">Type</label>
+                <select name="type">
+                    <option value="complain">Complain</option>
+                    <option value="suggestion">Suggestion</option>
+                </select> 
+                <br/><label for="message">Content</label>
+                <textarea rows="5" class="form-control" id="message" name="message"/>
+            </div>
+            <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</html>

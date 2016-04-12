@@ -1,0 +1,42 @@
+<html layout:decorator="layout">
+
+<div layout:fragment="content">
+
+    <a class="btn btn-primary" href="/suggestions/new">Add new suggestion</a>
+
+    <table class="table table-striped" id="posts_list">
+        <thead>
+        <tr>
+            <th>Comments</th>
+            <th>Type</th>
+            <th>Rating</th>
+            <th>Action</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr data-th-each="post : ${posts}">
+            <td data-th-utext="${post.content}"></td>
+            <td data-th-utext="${post.type}"></td>
+            <td data-th-utext="${post.popularity}"></td>
+
+                        <td>
+                <a th:href="@{'/suggestions/{id}/view'(id=${post.id})}" class="view" th:attr="name=${post.content}">
+                        <span class="fa-stack">
+                            <i class="glyphicon glyphicon-file"></i>
+                        </span>
+                </a>
+            </td>
+            
+            <td>
+                <a th:href="@{'/suggestions/{id}/delete'(id=${post.id})}" class="delete" th:attr="name=${post.content}">
+                        <span class="fa-stack">
+                            <i class="glyphicon glyphicon-trash"></i>
+                        </span>
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</html>

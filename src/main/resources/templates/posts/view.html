@@ -1,0 +1,21 @@
+<html layout:decorator="layout">
+
+<div layout:fragment="content">
+    <div data-th-utext="${post.content}"></div>
+    <a class="btn btn-primary" th:href="@{'/suggestions/{id}/comments/new'(id=${post.id})}">Add new comment</a>
+
+    <table class="table table-striped" id="posts_list">
+        <thead>
+        <tr>
+            <th>Comments</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr data-th-each="comment : ${post.votes}">
+            <td class="message" data-th-utext="${comment.text}"></td>
+            <td class="message" data-th-utext="${comment.vote}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</html>
